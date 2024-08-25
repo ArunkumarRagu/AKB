@@ -1,0 +1,27 @@
+<h1><%= action_name.capitalize %> Transaction</h1>
+<%= form_with(model: @transaction, local: true) do |form| %>
+  <div>
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+  <div>
+    <%= form.label :account_id, "Account", class: 'form-label' %>
+    <%= form.collection_select :account_id, @accounts, :id, :name, class: 'form-control' %>
+  </div>
+  <div>
+    <%= form.label :amount, class: 'form-label' %>
+    <%= form.number_field :amount, class: 'form-control' %>
+  </div>
+  <div>
+    <%= form.label :type_id, "Transaction Type", class: 'form-label' %>
+    <%= form.collection_select :type_id, TransactionType.all, :id, :name, class: 'form-control' %>
+  </div>
+  <div>
+    <%= form.label :notes, class: 'form-label' %>
+    <%= form.text_area :notes, class: 'form-control' %>
+  </div>
+  <div class="actions mt-2 mb-2 d-flex justify-content-center">
+    <%= form.submit "Update", class: "btn btn-primary submit-btn"  %>
+    <%= link_to 'Back', transactions_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>

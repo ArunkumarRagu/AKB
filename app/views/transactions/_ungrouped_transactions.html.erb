@@ -1,0 +1,10 @@
+<div class="ungroup-table-wrapper">
+  <table id="transaction_table" class="table ungrouped-table" data-behavior="basic_tables">
+    <%= render partial: 'thead' %>
+    <tbody>
+      <% transactions.each do |transaction| %>
+        <%= render partial: 'tbody', locals: {transaction: transaction} %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

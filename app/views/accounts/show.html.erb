@@ -1,0 +1,19 @@
+<h1>Account Details</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @account.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @account.description %>
+</p>
+<p>
+  <strong>Branch:</strong>
+  <%= @account.branch %>
+</p>
+<p>
+  <strong>Balance:</strong>
+  <%= @account.balance %>
+</p>
+<%= link_to 'Edit', edit_account_path(@account), class: 'btn btn-primary' %>
+<%= link_to 'Back', accounts_path, class: 'btn btn-secondary' %>

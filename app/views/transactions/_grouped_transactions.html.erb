@@ -1,0 +1,24 @@
+<% groouped_transactions = transactions.group_by { |transaction| transaction.account.name  } %>
+<div class="accordion grouped-table grouped-table-wrapper" id="accordionPanelsStayOpenExample">
+  <% groouped_transactions.each do |account, transactions| %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="<%= account.parameterize %>_head">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<%= account.parameterize %>_target" aria-expanded="false" aria-controls="<%= account.parameterize %>_target">
+          <%=  account.capitalize %>
+        </button>
+      </h2>
+      <div id="<%= account.parameterize %>_target" class="accordion-collapse collapse show" aria-labelledby="<%= account.parameterize %>_head">
+        <div class="accordion-body">
+          <table id="transaction_table_<%= account %>" class="table" data-behavior="basic_tables">
+            <%= render partial: 'thead' %>
+            <tbody>
+              <% transactions.each do |transaction| %>
+                <%= render partial: 'tbody', locals: {transaction: transaction} %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

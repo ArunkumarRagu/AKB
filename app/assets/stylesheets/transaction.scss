@@ -1,0 +1,57 @@
+@import "variable";
+
+.trans-table-container {
+  margin-top: 30px;
+  padding: 20px;
+  background: $background-white;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+  .form-switch {
+    margin-bottom: 20px;
+    padding-left: 2.8em;
+    .form-check-label {
+      font-size: 16px;
+      font-weight: 400;
+    }
+    .form-check-input {
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+  .ungroup-table-wrapper,
+  .accounts-table-wrapper {
+    border: 1px solid $color-light-grey;
+  }
+  .ungroup-table-wrapper,
+  .grouped-table-wrapper,
+  .accounts-table-wrapper {
+    table {
+      margin: 0;
+      th {
+        background-color: $table-head-bg;
+      }
+    }
+  }
+  .grouped-table-wrapper {
+    .accordion-body {
+      padding: 0;
+    }
+    .accordion-header {
+      .accordion-button {
+        border-radius: none;
+        background-color: $accordion-bg;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+    .accordion-item {
+      background-color: $accordion-bg;
+      border-radius: 0;
+      margin-bottom: 30px;
+    }
+  }
+  .grouped-table {
+    display: none;
+  }
+}
