@@ -15,6 +15,11 @@
 #   username: aruneeyy
 #   password: aruneeyy
 
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
 base: &base
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -29,8 +34,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *base
-  database: akbanking
+  database: db/test.sqlite3
 
-production:
-  <<: *base
-  database: akbanking
+  <<: *default
+  database: akb_production
+  username: akb
+  password: <%= ENV['AKB_DATABASE_PASSWORD'] %>
